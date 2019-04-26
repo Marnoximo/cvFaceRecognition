@@ -33,10 +33,13 @@ start_time = time.time()
 embedded = []
 names = []
 for dir in os.listdir(IMAGES_PATH):
+    if dir[0] == '0':   #Debugging
+        continue
     for i in os.listdir(os.path.join(IMAGES_PATH, dir)):
         image = cv2.imread(os.path.join(IMAGES_PATH, dir, i))
         image = image[...,::-1]
-        image = get_aligned(image, alignment)
+        face, image = get_aligned(image, alignment)
+        print(dir, "/", i)
         if image is None:
             print('Failed: ', i)
             continue

@@ -21,6 +21,6 @@ def get_aligned (frame, alignment):
 def save_results(person, dtime, path):
     f = open(path, 'w')
     for i in range(len(person)):
-        line = str(person[i]) + ',' + str(dtime[i]) + '\n'
+        line = str(person[i]) + ',' + dtime[i] + '\n'
         f.write(line)
     f.close()
